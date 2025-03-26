@@ -16,14 +16,14 @@
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.js",
     "useFileSystemPublicRoutes": true,
-    "generateEtags": true,
+    "generateEtags": false,
     "pageExtensions": [
       "tsx",
       "ts",
       "jsx",
       "js"
     ],
-    "poweredByHeader": true,
+    "poweredByHeader": false,
     "compress": true,
     "images": {
       "deviceSizes": [
@@ -104,7 +104,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/alam/Library/Mobile Documents/com~apple~CloudDocs/HireForSmallBusiness/frontend",
+    "outputFileTracingRoot": "/home/alam/HireForSmallBusiness/frontend",
     "experimental": {
       "allowedDevOrigins": [],
       "nodeMiddleware": false,
@@ -162,7 +162,7 @@
       "middlewarePrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 7,
+      "cpus": 3,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -170,7 +170,7 @@
       "imgOptSequentialRead": null,
       "isrFlushToDisk": true,
       "workerThreads": false,
-      "optimizeCss": false,
+      "optimizeCss": true,
       "nextScriptWorkers": false,
       "scrollRestoration": false,
       "externalDir": false,
@@ -183,7 +183,7 @@
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
       "turbo": {
-        "root": "/Users/alam/Library/Mobile Documents/com~apple~CloudDocs/HireForSmallBusiness/frontend"
+        "root": "/home/alam/HireForSmallBusiness/frontend"
       },
       "typedRoutes": false,
       "typedEnv": false,
@@ -206,6 +206,8 @@
       "inlineCss": false,
       "useCache": false,
       "optimizePackageImports": [
+        "@heroicons/react",
+        "@headlessui/react",
         "lucide-react",
         "date-fns",
         "lodash-es",
@@ -214,7 +216,6 @@
         "react-bootstrap",
         "ahooks",
         "@ant-design/icons",
-        "@headlessui/react",
         "@headlessui-float/react",
         "@heroicons/react/20/solid",
         "@heroicons/react/24/solid",
@@ -287,9 +288,13 @@
     },
     "htmlLimitedBots": "Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.js"
+    "configFileName": "next.config.js",
+    "swcMinify": true,
+    "compiler": {
+      "removeConsole": true
+    }
   },
-  "appDir": "/Users/alam/Library/Mobile Documents/com~apple~CloudDocs/HireForSmallBusiness/frontend",
+  "appDir": "/home/alam/HireForSmallBusiness/frontend",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",
@@ -308,7 +313,8 @@
     ".next/server/server-reference-manifest.json",
     ".next/BUILD_ID",
     ".next/server/next-font-manifest.js",
-    ".next/server/next-font-manifest.json"
+    ".next/server/next-font-manifest.json",
+    ".next/static/css/8bd60869fd57c90b.css"
   ],
   "ignore": [
     "node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*"

@@ -8,8 +8,8 @@ com/talentmarketplace/config/SecurityConfig.class
 com/talentmarketplace/model/UserRole.class
 com/talentmarketplace/repository/MessageRepository.class
 com/talentmarketplace/controller/InterviewRequestController.class
-com/talentmarketplace/service/MessageService.class
 com/talentmarketplace/service/InterviewRequestService.class
+com/talentmarketplace/service/MessageService.class
 com/talentmarketplace/model/User.class
 com/talentmarketplace/controller/ChatMessage.class
 com/talentmarketplace/service/CandidateProfileService.class
