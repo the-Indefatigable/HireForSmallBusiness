@@ -20,6 +20,35 @@ interface Candidate {
   photo: string;
   preferredWorkType: 'Remote' | 'Hybrid' | 'On-site';
   preferredRoles: string[];
+  socialMedia?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+  };
+  portfolio?: {
+    website?: string;
+    projects?: Array<{
+      title: string;
+      description: string;
+      link?: string;
+      technologies: string[];
+    }>;
+  };
+  education?: Array<{
+    degree: string;
+    institution: string;
+    year: string;
+  }>;
+  certifications?: Array<{
+    name: string;
+    issuer: string;
+    year: string;
+  }>;
+  resume?: {
+    filename: string;
+    url: string;
+    uploadedAt: string;
+  };
 }
 
 interface InterviewRequest {
@@ -269,11 +298,13 @@ export default function Marketplace() {
     return [...filteredCandidates].sort((a, b) => {
       switch (sortBy) {
         case 'experience':
-          return b.experience - a.experience;
+          return b.yearsOfExperience - a.yearsOfExperience;
         case 'rate':
           return b.hourlyRate - a.hourlyRate;
         case 'availability':
-          return a.availability === 'Immediate' ? -1 : b.availability === 'Immediate' ? 1 : 0;
+          // Sort by availability type
+          const availabilityOrder = { 'Full-time': 0, 'Part-time': 1, 'Contract': 2 };
+          return availabilityOrder[a.availability] - availabilityOrder[b.availability];
         default:
           return 0;
       }
@@ -320,7 +351,7 @@ export default function Marketplace() {
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newMessage.trim() || !selectedCandidate) return;
+    if (!newMessage.trim() || !selectedCandidate || !user) return;
 
     const message: ChatMessage = {
       id: Date.now().toString(),
