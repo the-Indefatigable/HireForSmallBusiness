@@ -252,9 +252,8 @@ export default function Marketplace() {
   // Filter candidates based on search term, location, and skills
   const filteredCandidates = useMemo(() => {
     return DUMMY_CANDIDATES.filter(candidate => {
-      const matchesSearch = searchTerm === '' || 
-        candidate.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        candidate.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      const matchesSearch = searchTerm === '' ||
+        `${candidate.firstName} ${candidate.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
         candidate.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
 
       const matchesLocation = selectedLocation === '' || candidate.location === selectedLocation;
