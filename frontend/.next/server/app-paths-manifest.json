@@ -1,9 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/auth/page": "app/auth/page.js",
-  "/candidates/page": "app/candidates/page.js",
-  "/marketplace/page": "app/marketplace/page.js",
   "/page": "app/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js"
+  "/auth/page": "app/auth/page.js",
+  "/marketplace/page": "app/marketplace/page.js"
 }

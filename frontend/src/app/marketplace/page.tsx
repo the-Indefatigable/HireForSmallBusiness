@@ -272,6 +272,13 @@ export default function Marketplace() {
     }
   }, [user, router]);
 
+  // Redirect candidates to their profile page
+  useEffect(() => {
+    if (user?.role === 'CANDIDATE') {
+      router.push('/profile');
+    }
+  }, [user, router]);
+
   // Extract unique locations from DUMMY_CANDIDATES
   const locations = useMemo(() => {
     const uniqueLocations = new Set(DUMMY_CANDIDATES.map(candidate => candidate.location));
@@ -412,6 +419,29 @@ export default function Marketplace() {
     
     setResumeFile(file);
   };
+
+  if (user?.role === 'CANDIDATE') {
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Access Restricted
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              As a candidate, you can only view and edit your own profile. Please visit your profile page to manage your information.
+            </p>
+            <button
+              onClick={() => router.push('/profile')}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Go to My Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!user) {
     return null;

@@ -20,4 +20,12 @@ public interface CandidateProfileRepository extends JpaRepository<CandidateProfi
     @Query("SELECT cp FROM CandidateProfile cp WHERE cp.isAvailable = true AND " +
            "(:skill IS NULL OR :skill MEMBER OF cp.skills)")
     List<CandidateProfile> findBySkill(String skill);
+
+    List<CandidateProfile> findBySkillsContainingAndLocationContainingAndPreferredWorkType(
+        String skills, String location, String workType);
+
+    List<CandidateProfile> findByLocationContainingAndPreferredWorkType(
+        String location, String workType);
+
+    List<CandidateProfile> findByPreferredWorkType(String workType);
 } 

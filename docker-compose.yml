@@ -1,26 +1,32 @@
 version: '3.8'
 
 services:
-  traefik:
-    image: traefik:v2.10
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/acme.json:/acme.json
-      - ./traefik/traefik.yml:/traefik.yml:ro
-    restart: unless-stopped
-
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`yourbusiness.ddns.net`)"
-      - "traefik.http.routers.frontend.entrypoints=websecure"
-      - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
+    build: ./frontend
+    ports:
+      - "3000:3000"
     environment:
-      - NODE_ENV=production
-    restart: unless-stopped 
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/talent_marketplace
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=talent_marketplace
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 

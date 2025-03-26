@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Hire for Small Business',
-  description: 'Find the perfect talent for your small business',
+  title: 'HireSmart - Big Talent, Small Business',
+  description: 'Connect with skilled professionals who can help your small business grow. Find developers, designers, and marketing experts.',
 };
 
 export default function RootLayout({
