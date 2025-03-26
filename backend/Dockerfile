@@ -1,12 +1,17 @@
-FROM python:3.11-slim
+FROM eclipse-temurin:17-jdk-alpine AS build
+WORKDIR /workspace/app
 
-WORKDIR /app
+COPY gradle gradle
+COPY build.gradle settings.gradle gradlew ./
+COPY src src
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN ./gradlew build -x test
+RUN mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/*.jar)
 
-COPY . .
-
-EXPOSE 8000
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
+FROM eclipse-temurin:17-jre-alpine
+VOLUME /tmp
+ARG DEPENDENCY=/workspace/app/build/dependency
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.talentmarketplace.TalentMarketplaceApplication"] 

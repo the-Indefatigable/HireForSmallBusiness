@@ -1,102 +1,74 @@
-# Talent Marketplace Platform
+# HireSmart - Big Talent, Small Business
 
-A modern talent marketplace platform built with Spring Boot and Next.js, connecting employers with potential candidates.
+A platform connecting small businesses with skilled professionals.
 
 ## Features
 
-- User Authentication (Employers & Candidates)
-- Candidate Profile Management
-  - Professional information
-  - Skills and expertise
-  - Experience
-  - Portfolio
-- Employer Features
-  - Browse candidate profiles
-  - Send interview requests
-  - Direct messaging with candidates
-  - Track interview requests
-- Candidate Features
-  - Create and manage profile
-  - Receive and respond to interview requests
-  - Chat with potential employers
-  - Track interview requests
+- User authentication and authorization
+- Role-based access control (Employers and Candidates)
+- Profile management for candidates
+- Job posting and candidate search for employers
+- File upload support for resumes and profile photos
+- Responsive and modern UI
 
-## Tech Stack
+## Prerequisites
 
-### Backend
-- Spring Boot 3.x
-- PostgreSQL
-- Spring Security (JWT)
-- Spring Data JPA
-- WebSocket (for chat functionality)
-- Maven
+- Docker and Docker Compose
+- Git
 
-### Frontend
-- Next.js 14
-- React
-- TypeScript
-- Tailwind CSS
-- NextAuth.js
-- Socket.io-client (for real-time chat)
+## Deployment
 
-## Project Structure
-
-```
-talent-marketplace/
-├── backend/                 # Spring Boot application
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── com/talentmarketplace/
-│   │   │   │       ├── config/
-│   │   │   │       ├── controller/
-│   │   │   │       ├── model/
-│   │   │   │       ├── repository/
-│   │   │   │       ├── service/
-│   │   │   │       └── security/
-│   │   │   └── resources/
-│   │   └── test/
-│   └── pom.xml
-└── frontend/               # Next.js application
-    ├── src/
-    │   ├── app/
-    │   ├── components/
-    │   ├── lib/
-    │   └── types/
-    ├── public/
-    └── package.json
+1. Clone the repository:
+```bash
+git clone <your-repository-url>
+cd HireSmart
 ```
 
-## Getting Started
+2. Create a `.env` file in the root directory with the following variables:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
 
-### Prerequisites
-- Java 17 or later
-- Node.js 18 or later
-- PostgreSQL
-- Maven
-- npm or yarn
+3. Build and start the containers:
+```bash
+docker-compose up --build
+```
 
-### Backend Setup
-1. Navigate to the backend directory
-2. Configure PostgreSQL connection in `application.properties`
-3. Run `mvn spring-boot:run`
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8080
+- PostgreSQL: localhost:5432
 
-### Frontend Setup
-1. Navigate to the frontend directory
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
+## Development
 
-## Environment Variables
+### Frontend Development
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-### Backend
-- `SPRING_DATASOURCE_URL`
-- `SPRING_DATASOURCE_USERNAME`
-- `SPRING_DATASOURCE_PASSWORD`
-- `JWT_SECRET`
-- `WEBSOCKET_ENDPOINT`
+### Backend Development
+```bash
+cd backend
+./gradlew bootRun
+```
 
-### Frontend
-- `NEXT_PUBLIC_API_URL`
-- `NEXTAUTH_SECRET`
-- `NEXTAUTH_URL`
-- `NEXT_PUBLIC_WEBSOCKET_URL` 
+## Architecture
+
+- Frontend: Next.js with TypeScript
+- Backend: Spring Boot with Java
+- Database: PostgreSQL
+- File Storage: Local filesystem (configurable)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
