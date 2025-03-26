@@ -151,7 +151,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 5,
         availability: 'Immediate',
         hourlyRate: 120,
-        education: 'BS in Computer Science, Stanford University'
+        education: 'BS in Computer Science, Stanford University',
+        preferredWorkType: 'Remote'
       },
       {
         id: '2',
@@ -167,7 +168,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 3,
         availability: '2 Weeks',
         hourlyRate: 90,
-        education: 'MS in Data Science, Columbia University'
+        education: 'MS in Data Science, Columbia University',
+        preferredWorkType: 'Hybrid'
       },
       {
         id: '3',
@@ -184,7 +186,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 7,
         availability: '1 Month',
         hourlyRate: 150,
-        education: 'BS in Software Engineering, University of Washington'
+        education: 'BS in Software Engineering, University of Washington',
+        preferredWorkType: 'On-site'
       },
       {
         id: '4',
@@ -201,7 +204,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 4,
         availability: 'Immediate',
         hourlyRate: 100,
-        education: 'BA in Design, Rhode Island School of Design'
+        education: 'BA in Design, Rhode Island School of Design',
+        preferredWorkType: 'Remote'
       },
       {
         id: '5',
@@ -217,7 +221,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 6,
         availability: '3 Months',
         hourlyRate: 130,
-        education: 'BS in Computer Engineering, Illinois Institute of Technology'
+        education: 'BS in Computer Engineering, Illinois Institute of Technology',
+        preferredWorkType: 'Hybrid'
       },
       {
         id: '6',
@@ -234,7 +239,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 4,
         availability: '2 Weeks',
         hourlyRate: 110,
-        education: 'BS in Computer Science, MIT'
+        education: 'BS in Computer Science, MIT',
+        preferredWorkType: 'Remote'
       },
       {
         id: '7',
@@ -250,7 +256,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 3,
         availability: 'Immediate',
         hourlyRate: 85,
-        education: 'BS in Computer Science, University of British Columbia'
+        education: 'BS in Computer Science, University of British Columbia',
+        preferredWorkType: 'Hybrid'
       },
       {
         id: '8',
@@ -267,7 +274,8 @@ export default function CandidatesPage() {
         yearsOfExperience: 5,
         availability: '1 Month',
         hourlyRate: 95,
-        education: 'BS in Computer Science, University of Colorado'
+        education: 'BS in Computer Science, University of Colorado',
+        preferredWorkType: 'On-site'
       },
       {
         id: '9',
